@@ -24,7 +24,7 @@
     <!-- Encabezado / Barra de Navegación -->
     <header>
         <div id="encabezado">
-            <a href="../index.html" id="logo" aria-label="SLG Transportes - Inicio">
+            <a href="../index.html" data-i18n="nav_home" id="logo" aria-label="SLG Transportes - Inicio">
                 <div class="logo-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="1" y="3" width="15" height="13"></rect>
@@ -45,14 +45,35 @@
                 <span></span>
             </button>
 
+            
+            <!-- Selector de Idioma -->
+            <div class="lang-selector">
+                <button class="lang-selector-btn" aria-label="Cambiar idioma" aria-expanded="false">
+                    <span class="lang-flag" id="lang-flag-current">&#127466;&#127480;</span>
+                    <span id="lang-code-current">ES</span>
+                    <span class="lang-chevron">&#9660;</span>
+                </button>
+                <div class="lang-dropdown" role="listbox" aria-label="Seleccionar idioma">
+                    <button class="lang-btn lang-activo" data-lang="es" onclick="switchLang('es'); updateLangBtn('es')">
+                        <span class="lang-flag">&#127466;&#127480;</span> Espa&#241;ol
+                    </button>
+                    <button class="lang-btn" data-lang="en" onclick="switchLang('en'); updateLangBtn('en')">
+                        <span class="lang-flag">&#127468;&#127463;</span> English
+                    </button>
+                    <button class="lang-btn" data-lang="fr" onclick="switchLang('fr'); updateLangBtn('fr')">
+                        <span class="lang-flag">&#127467;&#127479;</span> Fran&#231;ais
+                    </button>
+                </div>
+            </div>
+
             <nav id="navegacion">
                 <ul class="links">
                     <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="../About/index.html" class="activo">Sobre nosotros</a></li>
-                    <li><a href="../Service/index.html">Servicios</a></li>
-                    <li><a href="../Contact/index.html">Contacto</a></li>
-                    <li><button type="button" class="btn-nav-app btn-instalar-trigger">📲 Instalar App</button></li>
-                    <li><a href="../Contact/index.html" class="nav-cta">Pedir Presupuesto</a></li>
+                    <li><a href="../About/index.html" data-i18n="nav_about" class="activo">Sobre nosotros</a></li>
+                    <li><a href="../Service/index.html" data-i18n="nav_services">Servicios</a></li>
+                    <li><a href="../Contact/index.html" data-i18n="nav_contact">Contacto</a></li>
+                    <li><button type="button" class="btn-nav-app btn-instalar-trigger" data-i18n="nav_install">📲 Instalar App</button></li>
+                    <li><a href="../Contact/index.html" class="nav-cta" data-i18n="nav_quote">Pedir Presupuesto</a></li>
                 </ul>
             </nav>
         </div>
@@ -84,7 +105,7 @@
                                 <polyline points="12 6 12 12 14 14"></polyline>
                             </svg>
                         </div>
-                        <h3>Nuestra Misión</h3>
+                        <h3 data-i18n="about_mission_h3a">Nuestra Misión</h3>
                         <p>Proporcionar servicios logísticos y de transporte terrestre confiables que permitan a nuestros clientes centrarse en hacer crecer sus negocios sin preocuparse por la cadena de distribución.</p>
                     </div>
 
@@ -94,7 +115,7 @@
                                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                             </svg>
                         </div>
-                        <h3>Nuestra Visión</h3>
+                        <h3 data-i18n="about_mission_h3b">Nuestra Visión</h3>
                         <p>Ser el operador logístico de referencia nacional en España reconocido por su puntualidad inquebrantable, sostenibilidad ambiental y atención personalizada al cliente.</p>
                     </div>
 
@@ -221,9 +242,9 @@
             <div class="footer-col">
                 <div class="footer-logo">
                     <h3>SLG</h3>
-                    <p>Compañía de transportes nacional de España</p>
+                    <p data-i18n="footer_tagline">Compañía de transportes nacional de España</p>
                 </div>
-                <p class="footer-desc">Soluciones logísticas integrales, puntuales y seguras para empresas y particulares en toda la península e islas.</p>
+                <p class="footer-desc" data-i18n="footer_desc">Soluciones logísticas integrales, puntuales y seguras para empresas y particulares en toda la península e islas.</p>
             </div>
             <div class="footer-col">
                 <h4>Enlaces rápidos</h4>
@@ -235,11 +256,11 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Contacto directo</h4>
+                <h4 data-i18n="footer_contact_title">Contacto directo</h4>
                 <p>📍 Cobertura Nacional en toda España</p>
                 <p>📞 <a href="tel:900000000">900 000 000</a></p>
                 <p>✉️ <a href="mailto:moritomatamoros03@gmail.com">moritomatamoros03@gmail.com</a></p>
-                <p>⏰ Lun - Vie: 08:00 - 19:00 | Urgencias 24h</p>
+                <p data-i18n="footer_hours">⏰ Lun - Vie: 08:00 - 19:00 | Urgencias 24h</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -251,7 +272,7 @@
     <div class="modal-overlay" id="modal-instalar-app" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-about">
         <div class="modal-contenido">
             <button class="modal-cerrar" id="modal-cerrar-btn" aria-label="Cerrar modal">&times;</button>
-            <h3 id="modal-titulo-about" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">📲 Cómo instalar SLG Transportes</h3>
+            <h3 id="modal-titulo-about" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;" data-i18n="modal_title">📲 Cómo instalar SLG Transportes</h3>
             <p style="color: var(--text-muted); font-size: 14px;">Sigue estos sencillos pasos según el dispositivo que estés utilizando:</p>
             
             <ul class="modal-pasos">
@@ -278,10 +299,11 @@
                 </li>
             </ul>
 
-            <button type="button" class="boton boton-bloque" onclick="document.querySelector('#modal-instalar-app').classList.remove('abierto')">Entendido</button>
+            <button type="button" class="boton boton-bloque" onclick="document.querySelector('#modal-instalar-app').classList.remove('abierto')" data-i18n="modal_btn">Entendido</button>
         </div>
     </div>
 
+    <script src="../i18n.js"></script>
     <script src="../main.js"></script>
 </body>
 

@@ -24,7 +24,7 @@
     <!-- Encabezado / Barra de Navegación -->
     <header>
         <div id="encabezado">
-            <a href="../index.html" id="logo" aria-label="SLG Transportes - Inicio">
+            <a href="../index.html" data-i18n="nav_home" id="logo" aria-label="SLG Transportes - Inicio">
                 <div class="logo-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="1" y="3" width="15" height="13"></rect>
@@ -45,14 +45,35 @@
                 <span></span>
             </button>
 
+            
+            <!-- Selector de Idioma -->
+            <div class="lang-selector">
+                <button class="lang-selector-btn" aria-label="Cambiar idioma" aria-expanded="false">
+                    <span class="lang-flag" id="lang-flag-current">&#127466;&#127480;</span>
+                    <span id="lang-code-current">ES</span>
+                    <span class="lang-chevron">&#9660;</span>
+                </button>
+                <div class="lang-dropdown" role="listbox" aria-label="Seleccionar idioma">
+                    <button class="lang-btn lang-activo" data-lang="es" onclick="switchLang('es'); updateLangBtn('es')">
+                        <span class="lang-flag">&#127466;&#127480;</span> Espa&#241;ol
+                    </button>
+                    <button class="lang-btn" data-lang="en" onclick="switchLang('en'); updateLangBtn('en')">
+                        <span class="lang-flag">&#127468;&#127463;</span> English
+                    </button>
+                    <button class="lang-btn" data-lang="fr" onclick="switchLang('fr'); updateLangBtn('fr')">
+                        <span class="lang-flag">&#127467;&#127479;</span> Fran&#231;ais
+                    </button>
+                </div>
+            </div>
+
             <nav id="navegacion">
                 <ul class="links">
                     <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="../About/index.html">Sobre nosotros</a></li>
-                    <li><a href="../Service/index.html" class="activo">Servicios</a></li>
-                    <li><a href="../Contact/index.html">Contacto</a></li>
-                    <li><button type="button" class="btn-nav-app btn-instalar-trigger">📲 Instalar App</button></li>
-                    <li><a href="../Contact/index.html" class="nav-cta">Pedir Presupuesto</a></li>
+                    <li><a href="../About/index.html" data-i18n="nav_about">Sobre nosotros</a></li>
+                    <li><a href="../Service/index.html" data-i18n="nav_services" class="activo">Servicios</a></li>
+                    <li><a href="../Contact/index.html" data-i18n="nav_contact">Contacto</a></li>
+                    <li><button type="button" class="btn-nav-app btn-instalar-trigger" data-i18n="nav_install">📲 Instalar App</button></li>
+                    <li><a href="../Contact/index.html" class="nav-cta" data-i18n="nav_quote">Pedir Presupuesto</a></li>
                 </ul>
             </nav>
         </div>
@@ -87,7 +108,7 @@
                                 <circle cx="18.5" cy="18.5" r="2.5"></circle>
                             </svg>
                         </div>
-                        <h3>Transporte de Mercancías</h3>
+                        <h3 data-i18n="s1_h3">Transporte de Mercancías</h3>
                         <p>Diseñado para empresas con flujos regulares o puntuales de pallets y mercancía comercial en toda la península.</p>
                         <ul class="tarjeta-lista">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Carga completa (FTL) con vehículo dedicado</li>
@@ -142,7 +163,7 @@
                                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
                             </svg>
                         </div>
-                        <h3>Almacenaje y Logística</h3>
+                        <h3 data-i18n="s4_h3">Almacenaje y Logística</h3>
                         <p>Instalaciones climatizadas y seguras para depositar tu stock, hacer cross-docking o gestionar preparación de pedidos.</p>
                         <ul class="tarjeta-lista">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Control informatizado de stock a tiempo real</li>
@@ -261,9 +282,9 @@
             <div class="footer-col">
                 <div class="footer-logo">
                     <h3>SLG</h3>
-                    <p>Compañía de transportes nacional de España</p>
+                    <p data-i18n="footer_tagline">Compañía de transportes nacional de España</p>
                 </div>
-                <p class="footer-desc">Soluciones logísticas integrales, puntuales y seguras para empresas y particulares en toda la península e islas.</p>
+                <p class="footer-desc" data-i18n="footer_desc">Soluciones logísticas integrales, puntuales y seguras para empresas y particulares en toda la península e islas.</p>
             </div>
             <div class="footer-col">
                 <h4>Enlaces rápidos</h4>
@@ -275,11 +296,11 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Contacto directo</h4>
+                <h4 data-i18n="footer_contact_title">Contacto directo</h4>
                 <p>📍 Cobertura Nacional en toda España</p>
                 <p>📞 <a href="tel:900000000">900 000 000</a></p>
                 <p>✉️ <a href="mailto:moritomatamoros03@gmail.com">moritomatamoros03@gmail.com</a></p>
-                <p>⏰ Lun - Vie: 08:00 - 19:00 | Urgencias 24h</p>
+                <p data-i18n="footer_hours">⏰ Lun - Vie: 08:00 - 19:00 | Urgencias 24h</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -291,7 +312,7 @@
     <div class="modal-overlay" id="modal-instalar-app" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-service">
         <div class="modal-contenido">
             <button class="modal-cerrar" id="modal-cerrar-btn" aria-label="Cerrar modal">&times;</button>
-            <h3 id="modal-titulo-service" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">📲 Cómo instalar SLG Transportes</h3>
+            <h3 id="modal-titulo-service" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;" data-i18n="modal_title">📲 Cómo instalar SLG Transportes</h3>
             <p style="color: var(--text-muted); font-size: 14px;">Sigue estos sencillos pasos según el dispositivo que estés utilizando:</p>
             
             <ul class="modal-pasos">
@@ -318,10 +339,11 @@
                 </li>
             </ul>
 
-            <button type="button" class="boton boton-bloque" onclick="document.querySelector('#modal-instalar-app').classList.remove('abierto')">Entendido</button>
+            <button type="button" class="boton boton-bloque" onclick="document.querySelector('#modal-instalar-app').classList.remove('abierto')" data-i18n="modal_btn">Entendido</button>
         </div>
     </div>
 
+    <script src="../i18n.js"></script>
     <script src="../main.js"></script>
 </body>
 

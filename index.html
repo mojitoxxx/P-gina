@@ -51,14 +51,34 @@
                 <span></span>
             </button>
 
+            <!-- Selector de Idioma -->
+            <div class="lang-selector">
+                <button class="lang-selector-btn" aria-label="Cambiar idioma" aria-expanded="false">
+                    <span class="lang-flag" id="lang-flag-current">🇪🇸</span>
+                    <span id="lang-code-current">ES</span>
+                    <span class="lang-chevron">▼</span>
+                </button>
+                <div class="lang-dropdown" role="listbox" aria-label="Seleccionar idioma">
+                    <button class="lang-btn lang-activo" data-lang="es" onclick="switchLang('es'); updateLangBtn('es')">
+                        <span class="lang-flag">🇪🇸</span> Español
+                    </button>
+                    <button class="lang-btn" data-lang="en" onclick="switchLang('en'); updateLangBtn('en')">
+                        <span class="lang-flag">🇬🇧</span> English
+                    </button>
+                    <button class="lang-btn" data-lang="fr" onclick="switchLang('fr'); updateLangBtn('fr')">
+                        <span class="lang-flag">🇫🇷</span> Français
+                    </button>
+                </div>
+            </div>
+
             <nav id="navegacion">
                 <ul class="links">
-                    <li><a href="index.html" class="activo">Inicio</a></li>
-                    <li><a href="About/index.html">Sobre nosotros</a></li>
-                    <li><a href="Service/index.html">Servicios</a></li>
-                    <li><a href="Contact/index.html">Contacto</a></li>
-                    <li><button type="button" class="btn-nav-app btn-instalar-trigger">📲 Instalar App</button></li>
-                    <li><a href="Contact/index.html" class="nav-cta">Pedir Presupuesto</a></li>
+                    <li><a href="index.html" class="activo" data-i18n="nav_home">Inicio</a></li>
+                    <li><a href="About/index.html" data-i18n="nav_about">Sobre nosotros</a></li>
+                    <li><a href="Service/index.html" data-i18n="nav_services">Servicios</a></li>
+                    <li><a href="Contact/index.html" data-i18n="nav_contact">Contacto</a></li>
+                    <li><button type="button" class="btn-nav-app btn-instalar-trigger" data-i18n="nav_install">📲 Instalar App</button></li>
+                    <li><a href="Contact/index.html" class="nav-cta" data-i18n="nav_quote">Pedir Presupuesto</a></li>
                 </ul>
             </nav>
         </div>
@@ -70,29 +90,29 @@
             <div class="hero-contenido">
                 <div class="badge-pill">
                     <span class="badge-dot"></span>
-                    Transporte Nacional & Logística Exprés
+                    Transporte Nacional &amp; Logística Exprés
                 </div>
-                <h2>Transporte terrestre ágil, puntual y seguro en toda España</h2>
-                <p>Conectamos empresas y particulares con cualquier punto de la península. Especialistas en carga completa, grupaje y entregas urgentes con seguimiento en tiempo real.</p>
+                <h2 data-i18n="hero_h2">Transporte terrestre ágil, puntual y seguro en toda España</h2>
+                <p data-i18n="hero_p">Conectamos empresas y particulares con cualquier punto de la península. Especialistas en carga completa, grupaje y entregas urgentes con seguimiento en tiempo real.</p>
                 <div class="hero-botones">
                     <a class="boton" href="Contact/index.html">
-                        <span>Pide tu presupuesto gratis</span>
+                        <span data-i18n="hero_btn1">Pide tu presupuesto gratis</span>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                    <a class="boton boton-secundario" href="Service/index.html">Ver Servicios</a>
+                    <a class="boton boton-secundario" href="Service/index.html" data-i18n="hero_btn2">Ver Servicios</a>
                 </div>
                 <div class="hero-garantias">
                     <div class="hero-garantia">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Flota propia moderna</span>
+                        <span data-i18n="hero_g1">Flota propia moderna</span>
                     </div>
                     <div class="hero-garantia">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Seguro de carga a todo riesgo</span>
+                        <span data-i18n="hero_g2">Seguro de carga a todo riesgo</span>
                     </div>
                     <div class="hero-garantia">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        <span>Atención directa 24/7</span>
+                        <span data-i18n="hero_g3">Atención directa 24/7</span>
                     </div>
                 </div>
             </div>
@@ -104,19 +124,19 @@
                 <div class="stats-grid">
                     <div class="stat-item">
                         <h3>+15</h3>
-                        <p>Años de experiencia en el sector</p>
+                        <p data-i18n="stats_y">Años de experiencia en el sector</p>
                     </div>
                     <div class="stat-item">
                         <h3>99.4%</h3>
-                        <p>Puntualidad en entregas garantizada</p>
+                        <p data-i18n="stats_p">Puntualidad en entregas garantizada</p>
                     </div>
                     <div class="stat-item">
                         <h3>+500</h3>
-                        <p>Rutas y destinos cubiertos en España</p>
+                        <p data-i18n="stats_r">Rutas y destinos cubiertos en España</p>
                     </div>
                     <div class="stat-item">
                         <h3>24/48h</h3>
-                        <p>Tiempos de tránsito exprés nacional</p>
+                        <p data-i18n="stats_t">Tiempos de tránsito exprés nacional</p>
                     </div>
                 </div>
             </div>
@@ -126,9 +146,9 @@
         <section class="bloque">
             <div class="contenedor">
                 <div class="cabecera-seccion">
-                    <span class="subtitulo-seccion">Lo que hacemos</span>
-                    <h2>Soluciones integrales de transporte</h2>
-                    <p>Adaptamos cada operativa logística al volumen, urgencia y características de tu carga.</p>
+                    <span class="subtitulo-seccion" data-i18n="sec_services_badge">Lo que hacemos</span>
+                    <h2 data-i18n="sec_services_h2">Soluciones integrales de transporte</h2>
+                    <p data-i18n="sec_services_p">Adaptamos cada operativa logística al volumen, urgencia y características de tu carga.</p>
                 </div>
                 <div class="tarjetas">
                     <!-- Servicio 1 -->
@@ -141,7 +161,7 @@
                                 <circle cx="18.5" cy="18.5" r="2.5"></circle>
                             </svg>
                         </div>
-                        <h3>Transporte de Mercancías</h3>
+                        <h3 data-i18n="s1_h3">Transporte de Mercancías</h3>
                         <p>Carga completa (FTL) o grupaje (LTL) para empresas industriales, comercios y distribución en toda España.</p>
                         <ul class="tarjeta-lista">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Salidas diarias programadas</li>
@@ -158,7 +178,7 @@
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
                         </div>
-                        <h3>Paquetería Exprés 24h</h3>
+                        <h3 data-i18n="s2_h3">Paquetería Exprés 24h</h3>
                         <p>Servicio urgente puerta a puerta para envíos prioritarios, repuestos críticos y documentación sensible.</p>
                         <ul class="tarjeta-lista">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Entregas antes de las 10:00 y 14:00</li>
@@ -176,7 +196,7 @@
                                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
                             </svg>
                         </div>
-                        <h3>Mudanzas y Traslados</h3>
+                        <h3 data-i18n="s3_h3">Mudanzas y Traslados</h3>
                         <p>Traslados residenciales y corporativos con máximo cuidado, personal cualificado y embalaje profesional.</p>
                         <ul class="tarjeta-lista">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Montaje y desmontaje de mobiliario</li>
@@ -193,7 +213,7 @@
                                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
                             </svg>
                         </div>
-                        <h3>Almacenaje y Logística</h3>
+                        <h3 data-i18n="s4_h3">Almacenaje y Logística</h3>
                         <p>Instalaciones seguras para custodia temporal, control de inventario y preparación de pedidos (picking & packing).</p>
                         <ul class="tarjeta-lista">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Almacén vigilado 24 horas</li>
@@ -209,8 +229,8 @@
         <section class="bloque bloque-alt">
             <div class="contenedor">
                 <div class="cabecera-seccion">
-                    <span class="subtitulo-seccion">Nuestras Ventajas</span>
-                    <h2>¿Por qué confiar en SLG?</h2>
+                    <span class="subtitulo-seccion" data-i18n="sec_why_badge">Nuestras Ventajas</span>
+                    <h2 data-i18n="sec_why_h2">¿Por qué confiar en SLG?</h2>
                     <p>Construimos relaciones a largo plazo basadas en la puntualidad, transparencia y seguridad en cada kilómetro.</p>
                 </div>
                 <div class="tarjetas">
@@ -221,7 +241,7 @@
                                 <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
                             </svg>
                         </div>
-                        <h3>Cobertura Peninsular Total</h3>
+                        <h3 data-i18n="why1_h3">Cobertura Peninsular Total</h3>
                         <p>Disponemos de red de distribución directa para llegar a cualquier código postal, polígono o núcleo urbano de España.</p>
                     </div>
                     <div class="tarjeta">
@@ -230,7 +250,7 @@
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                             </svg>
                         </div>
-                        <h3>Mercancía 100% Protegida</h3>
+                        <h3 data-i18n="why2_h3">Mercancía 100% Protegida</h3>
                         <p>Todos nuestros transportes incluyen póliza de seguro a todo riesgo y protocolos estrictos de estiba y sujeción.</p>
                     </div>
                     <div class="tarjeta">
@@ -239,7 +259,7 @@
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                             </svg>
                         </div>
-                        <h3>Atención Personalizada</h3>
+                        <h3 data-i18n="why3_h3">Atención Personalizada</h3>
                         <p>Sin centralitas automáticas engorrosas: tendrás un gestor de tráfico dedicado que resolverá cualquier consulta al instante.</p>
                     </div>
                 </div>
@@ -250,9 +270,9 @@
         <section class="bloque">
             <div class="contenedor">
                 <div class="cabecera-seccion">
-                    <span class="subtitulo-seccion">Garantía Real</span>
-                    <h2>Lo que dicen nuestros clientes</h2>
-                    <p>La satisfacción de empresas y particulares avala nuestro compromiso día a día.</p>
+                    <span class="subtitulo-seccion" data-i18n="sec_test_badge">Garantía Real</span>
+                    <h2 data-i18n="sec_test_h2">Lo que dicen nuestros clientes</h2>
+                    <p data-i18n="sec_test_p">La satisfacción de empresas y particulares avala nuestro compromiso día a día.</p>
                 </div>
                 <div class="tarjetas">
                     <div class="tarjeta-testimonio">
@@ -262,7 +282,7 @@
                             <div class="autor-avatar">CM</div>
                             <div class="autor-info">
                                 <h4>Carlos Morales</h4>
-                                <span>Director de Logística - InduTech SL</span>
+                                <span data-i18n="t1_role">Director de Logística - InduTech SL</span>
                             </div>
                         </div>
                     </div>
@@ -273,7 +293,7 @@
                             <div class="autor-avatar">AR</div>
                             <div class="autor-info">
                                 <h4>Ana Rodríguez</h4>
-                                <span>Operations Manager - Grupo Vértice</span>
+                                <span data-i18n="t2_role">Operations Manager - Grupo Vértice</span>
                             </div>
                         </div>
                     </div>
@@ -284,7 +304,7 @@
                             <div class="autor-avatar">ML</div>
                             <div class="autor-info">
                                 <h4>Miguel López</h4>
-                                <span>Particular — Mudanza Barcelona › Sevilla</span>
+                                <span data-i18n="t3_role">Particular — Mudanza Barcelona › Sevilla</span>
                             </div>
                         </div>
                     </div>
@@ -301,7 +321,7 @@
                             <span class="badge-dot"></span>
                             App Móvil & Escritorio
                         </div>
-                        <h2>Lleva SLG Transportes siempre en tu pantalla de inicio</h2>
+                        <h2 data-i18n="pwa_h2">Lleva SLG Transportes siempre en tu pantalla de inicio</h2>
                         <p>Instala nuestra aplicación oficial de forma gratuita y sin pasar por tiendas. Acceso directo con un solo toque, solicitudes de presupuesto inmediatas y contacto de urgencia 24 horas.</p>
                         <ul class="app-ventajas">
                             <li>⚡ <strong>Carga inmediata</strong> sin esperas ni consumo de datos innecesario.</li>
@@ -312,9 +332,9 @@
                         <div class="app-botones">
                             <button type="button" class="boton boton-app-instalar btn-instalar-trigger">
                                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                                <span>Instalar Aplicación Gratis</span>
+                                <span data-i18n="pwa_btn">Instalar Aplicación Gratis</span>
                             </button>
-                            <span class="app-compatibilidad">Compatible con Android, iPhone / iPad, Windows y Mac</span>
+                            <span class="app-compatibilidad" data-i18n="pwa_compat">Compatible con Android, iPhone / iPad, Windows y Mac</span>
                         </div>
                     </div>
                     <div class="app-banner-visual">
@@ -335,9 +355,9 @@
         <!-- Banner CTA -->
         <section class="contenedor">
             <div class="banner-cta">
-                <h2>¿Tienes un envío pendiente?</h2>
+                <h2 data-i18n="cta_h2">¿Tienes un envío pendiente?</h2>
                 <p>Calculamos tu ruta más eficiente y te ofrecemos la mejor tarifa del mercado en menos de 2 horas.</p>
-                <a href="Contact/index.html" class="boton">Solicitar Presupuesto Online</a>
+                <a href="Contact/index.html" class="boton" data-i18n="cta_btn">Solicitar Presupuesto Online</a>
             </div>
         </section>
     </main>
@@ -353,7 +373,7 @@
     <div class="modal-overlay" id="modal-instalar-app" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
         <div class="modal-contenido">
             <button class="modal-cerrar" id="modal-cerrar-btn" aria-label="Cerrar modal">&times;</button>
-            <h3 id="modal-titulo" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">📲 Cómo instalar SLG Transportes</h3>
+            <h3 id="modal-titulo" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;" data-i18n="modal_title">📲 Cómo instalar SLG Transportes</h3>
             <p style="color: var(--text-muted); font-size: 14px;">Sigue estos sencillos pasos según el dispositivo que estés utilizando:</p>
             
             <ul class="modal-pasos">
@@ -380,7 +400,7 @@
                 </li>
             </ul>
 
-            <button type="button" class="boton boton-bloque" onclick="document.querySelector('#modal-instalar-app').classList.remove('abierto')">Entendido</button>
+            <button type="button" class="boton boton-bloque" onclick="document.querySelector('#modal-instalar-app').classList.remove('abierto')" data-i18n="modal_btn">Entendido</button>
         </div>
     </div>
 
@@ -390,9 +410,9 @@
             <div class="footer-col">
                 <div class="footer-logo">
                     <h3>SLG</h3>
-                    <p>Compañía de transportes nacional de España</p>
+                    <p data-i18n="footer_tagline">Compañía de transportes nacional de España</p>
                 </div>
-                <p class="footer-desc">Soluciones logísticas integrales, puntuales y seguras para empresas y particulares en toda la península e islas.</p>
+                <p class="footer-desc" data-i18n="footer_desc">Soluciones logísticas integrales, puntuales y seguras para empresas y particulares en toda la península e islas.</p>
             </div>
             <div class="footer-col">
                 <h4>Enlaces rápidos</h4>
@@ -405,11 +425,11 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Contacto directo</h4>
+                <h4 data-i18n="footer_contact_title">Contacto directo</h4>
                 <p>📍 Cobertura Nacional en toda España</p>
                 <p>📞 <a href="tel:900000000">900 000 000</a></p>
                 <p>✉️ <a href="mailto:moritomatamoros03@gmail.com">moritomatamoros03@gmail.com</a></p>
-                <p>⏰ Lun - Vie: 08:00 - 19:00 | Urgencias 24h</p>
+                <p data-i18n="footer_hours">⏰ Lun - Vie: 08:00 - 19:00 | Urgencias 24h</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -417,6 +437,7 @@
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="main.js"></script>
 </body>
 
