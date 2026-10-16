@@ -113,5 +113,5 @@ Actualmente el formulario en `Contact/index.html` incluye validación en el nave
 Puedes cambiar rápidamente estos datos por los definitivos de tu empresa con la función buscar y reemplazar:
 - **Teléfono**: Cambia `900 000 000` por el teléfono de tu empresa.
 - **WhatsApp**: En los enlaces `https://wa.me/34900000000`, sustituye `34900000000` por el prefijo y número real (ej. `34612345678`).
-- **Correo**: Cambia `info@slg-transportes.es` por tu email corporativo.
+- **Correo**: Ya configurado como `moritomatamoros03@gmail.com` (puedes cambiarlo si en el futuro tienes un correo corporativo como `contacto@tudominio.com`).
 - **Sitemap**: En `sitemap.xml` y `robots.txt`, cambia `https://www.tudominio.com/` por la URL de tu dominio definitivo.

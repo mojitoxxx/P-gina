@@ -48,29 +48,73 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Manejo interactivo del formulario de presupuesto / contacto
+    // 3. Manejo interactivo del formulario de presupuesto / contacto (Formspree / Web3Forms / Demo)
     const contactForm = document.querySelector('#formulario-contacto');
     const formFeedback = document.querySelector('#form-feedback');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            // Nota: Si usas Formspree o un backend real, quita e.preventDefault() o usa fetch.
-            // Para demostración estática en cliente:
-            if (!contactForm.getAttribute('action') || contactForm.getAttribute('action') === '#') {
-                e.preventDefault();
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn ? submitBtn.innerText : 'Enviar';
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.innerText = 'Enviando solicitud...';
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.innerHTML : 'Enviar';
+            const actionUrl = contactForm.getAttribute('action');
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Enviando solicitud...';
+            }
+
+            // Caso A: Si está configurado con Formspree, endpoint externo o script PHP propio
+            if (actionUrl && actionUrl !== '#' && actionUrl.trim() !== '') {
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(actionUrl, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        if (formFeedback) {
+                            formFeedback.className = 'feedback-mensaje feedback-exito';
+                            formFeedback.innerHTML = `
+                                <strong>✅ ¡Solicitud enviada con éxito a nuestro equipo!</strong>
+                                <p>Hemos recibido tus datos correctamente en nuestro buzón. Nuestro equipo logístico te contactará en menos de 2 horas hábiles con el presupuesto cerrado.</p>
+                            `;
+                            formFeedback.style.display = 'block';
+                            formFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                        contactForm.reset();
+                    } else {
+                        const data = await response.json().catch(() => ({}));
+                        throw new Error(data.error || 'Error en el envío');
+                    }
+                } catch (error) {
+                    if (formFeedback) {
+                        formFeedback.className = 'feedback-mensaje feedback-error';
+                        formFeedback.innerHTML = `
+                            <strong>⚠️ No se pudo enviar el formulario automáticamente</strong>
+                            <p>Por favor, contáctanos directamente por teléfono al <a href="tel:900000000">900 000 000</a> o por WhatsApp para atenderte de inmediato.</p>
+                        `;
+                        formFeedback.style.display = 'block';
+                        formFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                } finally {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    }
                 }
-
+            } else {
+                // Caso B: Modo demostración local (cuando action="#")
                 setTimeout(() => {
                     if (formFeedback) {
                         formFeedback.className = 'feedback-mensaje feedback-exito';
                         formFeedback.innerHTML = `
-                            <strong>✅ ¡Solicitud enviada con éxito!</strong>
+                            <strong>✅ ¡Solicitud enviada con éxito! (Modo demostración)</strong>
                             <p>Hemos recibido tus datos correctamente. Nuestro equipo logístico analizará la ruta y te contactará en menos de 2 horas hábiles con el presupuesto más competitivo.</p>
                         `;
                         formFeedback.style.display = 'block';
@@ -79,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     contactForm.reset();
                     if (submitBtn) {
                         submitBtn.disabled = false;
-                        submitBtn.innerText = originalText;
+                        submitBtn.innerHTML = originalText;
                     }
                 }, 700);
             }
