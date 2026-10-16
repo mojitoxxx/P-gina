@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#b91c1c" />
+  <!-- Truck body -->
+  <path d="M14 22 H36 V40 H14 Z" fill="#ffffff" />
+  <!-- Truck cabin -->
+  <path d="M38 27 H46 L51 33 V40 H38 Z" fill="#ffffff" />
+  <!-- Cabin window -->
+  <path d="M40 29 H45 L48.5 33 H40 Z" fill="#b91c1c" />
+  <!-- Speed lines / arrow accent -->
+  <path d="M8 25 H12 M6 31 H11 M8 37 H12" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+  <!-- Wheels -->
+  <circle cx="23" cy="42" r="5" fill="#1e293b" />
+  <circle cx="23" cy="42" r="2" fill="#ffffff" />
+  <circle cx="44" cy="42" r="5" fill="#1e293b" />
+  <circle cx="44" cy="42" r="2" fill="#ffffff" />
+</svg>
