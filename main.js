@@ -129,4 +129,62 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 4. Lógica de Instalación de Aplicación (PWA)
+    let deferredPrompt = null;
+    const btnInstalarTriggers = document.querySelectorAll('.btn-instalar-trigger');
+    const modalInstalar = document.querySelector('#modal-instalar-app');
+    const btnCerrarModal = document.querySelector('#modal-cerrar-btn');
+
+    // Capturar el evento de instalación de Chrome / Edge / Android
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+    });
+
+    function abrirInstalador() {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('App instalada con éxito');
+                }
+                deferredPrompt = null;
+            });
+        } else {
+            // Si el navegador no permite disparo automático (ej. iPhone Safari o ya instalada)
+            if (modalInstalar) {
+                modalInstalar.classList.add('abierto');
+            }
+        }
+    }
+
+    btnInstalarTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            abrirInstalador();
+        });
+    });
+
+    if (btnCerrarModal && modalInstalar) {
+        btnCerrarModal.addEventListener('click', () => {
+            modalInstalar.classList.remove('abierto');
+        });
+        modalInstalar.addEventListener('click', (e) => {
+            if (e.target === modalInstalar) {
+                modalInstalar.classList.remove('abierto');
+            }
+        });
+    }
+
+    // Registro de Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            const swPath = window.location.pathname.includes('/About/') ||
+                           window.location.pathname.includes('/Contact/') ||
+                           window.location.pathname.includes('/Service/') ? '../sw.js' : './sw.js';
+            navigator.serviceWorker.register(swPath).catch(() => {});
+        });
+    }
 });
+

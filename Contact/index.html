@@ -10,8 +10,13 @@
     <meta name="keywords" content="transporte, España, SLG, mercancías, logística, contacto, presupuesto transporte">
     <meta name="theme-color" content="#c01b22">
 
-    <!-- Favicon -->
+    <!-- Favicon & PWA Web App Manifest -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="manifest" href="../manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SLG Transportes">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -46,6 +51,7 @@
                     <li><a href="../About/index.html">Sobre nosotros</a></li>
                     <li><a href="../Service/index.html">Servicios</a></li>
                     <li><a href="../Contact/index.html" class="activo">Contacto</a></li>
+                    <li><button type="button" class="btn-nav-app btn-instalar-trigger">📲 Instalar App</button></li>
                     <li><a href="../Contact/index.html" class="nav-cta">Pedir Presupuesto</a></li>
                 </ul>
             </nav>
@@ -158,6 +164,22 @@
                             </div>
 
                             <div class="form-grupo">
+                                <label>Tipo de Cliente *</label>
+                                <div class="radio-grupo">
+                                    <label class="radio-opcion">
+                                        <input type="radio" name="tipo_cliente" value="Particular (persona física)" required>
+                                        <span class="radio-btn"></span>
+                                        <span>👤 Particular</span>
+                                    </label>
+                                    <label class="radio-opcion">
+                                        <input type="radio" name="tipo_cliente" value="Empresa / Autónomo">
+                                        <span class="radio-btn"></span>
+                                        <span>🏢 Empresa / Autónomo</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-grupo">
                                 <label for="tipo_servicio">Tipo de Servicio *</label>
                                 <select id="tipo_servicio" name="tipo_servicio" required>
                                     <option value="" disabled selected>Selecciona una opción</option>
@@ -241,6 +263,41 @@
             <p>&copy; 2026 SLG - Compañía de transportes nacional de España. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Modal Instrucciones de Instalación -->
+    <div class="modal-overlay" id="modal-instalar-app" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-contact">
+        <div class="modal-contenido">
+            <button class="modal-cerrar" id="modal-cerrar-btn" aria-label="Cerrar modal">&times;</button>
+            <h3 id="modal-titulo-contact" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">📲 Cómo instalar SLG Transportes</h3>
+            <p style="color: var(--text-muted); font-size: 14px;">Sigue estos sencillos pasos según el dispositivo que estés utilizando:</p>
+            
+            <ul class="modal-pasos">
+                <li>
+                    <span class="paso-numero">1</span>
+                    <div>
+                        <strong>En iPhone / iPad (Safari):</strong>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 2px;">Pulsa el botón <strong>Compartir</strong> (icono de cuadrado con flecha hacia arriba) y selecciona <strong>"Añadir a la pantalla de inicio"</strong>.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="paso-numero">2</span>
+                    <div>
+                        <strong>En Android (Chrome):</strong>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 2px;">Toca los 3 puntos superiores del navegador y pulsa en <strong>"Instalar aplicación"</strong> o <strong>"Añadir a pantalla principal"</strong>.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="paso-numero">3</span>
+                    <div>
+                        <strong>En ordenador (Chrome / Edge):</strong>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 2px;">Haz clic en el icono de instalación 🖥️ que aparece en la barra de direcciones arriba a la derecha.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <button type="button" class="boton boton-bloque" onclick="document.querySelector('#modal-instalar-app').classList.remove('abierto')">Entendido</button>
+        </div>
+    </div>
 
     <script src="../main.js"></script>
 </body>

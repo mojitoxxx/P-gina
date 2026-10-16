@@ -865,6 +865,67 @@ textarea {
     border: 1px solid #fecaca;
 }
 
+/* Radio buttons Tipo de Cliente */
+.radio-grupo {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.radio-opcion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-main);
+    padding: 11px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    transition: var(--transition);
+    flex: 1;
+    min-width: 160px;
+}
+
+.radio-opcion:hover {
+    border-color: var(--primary);
+    background: rgba(192, 27, 34, 0.05);
+}
+
+.radio-opcion input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-btn {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: var(--transition);
+    position: relative;
+    display: inline-block;
+}
+
+.radio-opcion input[type="radio"]:checked ~ .radio-btn {
+    border-color: var(--primary);
+    background: var(--primary);
+    box-shadow: inset 0 0 0 3px var(--bg-surface);
+}
+
+.radio-opcion:has(input[type="radio"]:checked) {
+    border-color: var(--primary);
+    background: rgba(192, 27, 34, 0.08);
+    color: var(--primary);
+    font-weight: 600;
+}
+
 /* ==========================================================================
    ERROR 404
    ========================================================================== */
@@ -1090,12 +1151,289 @@ footer {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-
     .banner-cta {
         padding: 40px 20px;
     }
     
     .stats-bar {
         padding: 20px 15px;
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN INSTALAR APLICACIÓN (PWA)
+   ========================================================================== */
+.bloque-app {
+    background: linear-gradient(135deg, #0b1120 0%, #1e293b 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-banner {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 50px 40px;
+}
+
+.app-banner-info h2 {
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.app-banner-info p {
+    color: #cbd5e1;
+    font-size: 16px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.app-ventajas {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.app-ventajas li {
+    font-size: 15px;
+    color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-botones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.boton-app-instalar {
+    background: var(--primary);
+    color: white;
+    font-size: 16px;
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 14px rgba(192, 27, 34, 0.4);
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.boton-app-instalar:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(192, 27, 34, 0.6);
+}
+
+.app-compatibilidad {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* Mockup de teléfono en CSS */
+.app-banner-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mockup-movil {
+    width: 240px;
+    height: 380px;
+    background: #0f172a;
+    border: 8px solid #334155;
+    border-radius: 36px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 14px;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+}
+
+.mockup-movil::before {
+    content: "";
+    width: 60px;
+    height: 5px;
+    background: #475569;
+    border-radius: 4px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mockup-pantalla {
+    flex: 1;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.mockup-app-icon {
+    width: 72px;
+    height: 72px;
+    background: var(--primary);
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 16px rgba(192, 27, 34, 0.5);
+}
+
+.mockup-pantalla p {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.mockup-pantalla span {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+/* Botón en la barra de navegación */
+.btn-nav-app {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 7px 13px !important;
+    border-radius: var(--radius-sm);
+    font-size: 14px !important;
+    color: white !important;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.btn-nav-app:hover {
+    background: rgba(255, 255, 255, 0.22) !important;
+    border-color: white;
+}
+
+/* Modal de Instalación para iOS / PC */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay.abierto {
+    display: flex;
+}
+
+.modal-contenido {
+    background: white;
+    border-radius: var(--radius-lg);
+    max-width: 480px;
+    width: 100%;
+    padding: 32px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    color: var(--text-main);
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-cerrar:hover {
+    color: var(--dark);
+}
+
+.modal-pasos {
+    list-style: none;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-pasos li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+}
+
+.paso-numero {
+    width: 28px;
+    height: 28px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .app-banner {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .app-botones {
+        align-items: center;
+        width: 100%;
+    }
+
+    .boton-app-instalar {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .app-ventajas {
+        align-items: flex-start;
+        text-align: left;
     }
 }

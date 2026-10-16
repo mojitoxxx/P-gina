@@ -16,8 +16,13 @@
     <meta property="og:description" content="Servicio de transporte terrestre seguro, rápido y garantizado. Solicita tu presupuesto sin compromiso.">
     <meta property="og:locale" content="es_ES">
 
-    <!-- Favicon -->
+    <!-- Favicon & PWA Web App Manifest -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SLG Transportes">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -52,6 +57,7 @@
                     <li><a href="About/index.html">Sobre nosotros</a></li>
                     <li><a href="Service/index.html">Servicios</a></li>
                     <li><a href="Contact/index.html">Contacto</a></li>
+                    <li><button type="button" class="btn-nav-app btn-instalar-trigger">📲 Instalar App</button></li>
                     <li><a href="Contact/index.html" class="nav-cta">Pedir Presupuesto</a></li>
                 </ul>
             </nav>
@@ -273,12 +279,52 @@
                     </div>
                     <div class="tarjeta-testimonio">
                         <div class="estrellas">★★★★★</div>
-                        <p class="testimonio-texto">"Presupuesto claro, sin sorpresas de última hora y comunicación directa por WhatsApp con el conductor durante toda la ruta. Recomendados al 100%."</p>
+                        <p class="testimonio-texto">"Me ayudaron con la mudanza de mi piso de Barcelona a Sevilla sin ningún problema. Trato cercano, precio justo y llegaron el mismo día a la hora exacta. Como particular quedé encantado."</p>
                         <div class="testimonio-autor">
-                            <div class="autor-avatar">JG</div>
+                            <div class="autor-avatar">ML</div>
                             <div class="autor-info">
-                                <h4>Javier Gómez</h4>
-                                <span>Propietario de E-commerce Alimentación</span>
+                                <h4>Miguel López</h4>
+                                <span>Particular — Mudanza Barcelona › Sevilla</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Instalar Aplicación (PWA) -->
+        <section class="bloque bloque-app" id="instalar-app">
+            <div class="contenedor">
+                <div class="app-banner">
+                    <div class="app-banner-info">
+                        <div class="badge-pill">
+                            <span class="badge-dot"></span>
+                            App Móvil & Escritorio
+                        </div>
+                        <h2>Lleva SLG Transportes siempre en tu pantalla de inicio</h2>
+                        <p>Instala nuestra aplicación oficial de forma gratuita y sin pasar por tiendas. Acceso directo con un solo toque, solicitudes de presupuesto inmediatas y contacto de urgencia 24 horas.</p>
+                        <ul class="app-ventajas">
+                            <li>⚡ <strong>Carga inmediata</strong> sin esperas ni consumo de datos innecesario.</li>
+                            <li>📲 <strong>Acceso directo</strong> desde el escritorio de tu móvil o PC como una app nativa.</li>
+                            <li>🪶 <strong>Ultra ligera</strong> (ocupa menos de 1 MB de memoria).</li>
+                            <li>📶 <strong>Modo sin conexión</strong> para consultar teléfonos de contacto incluso sin cobertura.</li>
+                        </ul>
+                        <div class="app-botones">
+                            <button type="button" class="boton boton-app-instalar btn-instalar-trigger">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                <span>Instalar Aplicación Gratis</span>
+                            </button>
+                            <span class="app-compatibilidad">Compatible con Android, iPhone / iPad, Windows y Mac</span>
+                        </div>
+                    </div>
+                    <div class="app-banner-visual">
+                        <div class="mockup-movil">
+                            <div class="mockup-pantalla">
+                                <div class="mockup-app-icon">
+                                    <span>SLG</span>
+                                </div>
+                                <p><strong>SLG Transportes</strong></p>
+                                <span>App Oficial Instalable</span>
                             </div>
                         </div>
                     </div>
@@ -303,6 +349,41 @@
         </svg>
     </a>
 
+    <!-- Modal Instrucciones de Instalación -->
+    <div class="modal-overlay" id="modal-instalar-app" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="modal-contenido">
+            <button class="modal-cerrar" id="modal-cerrar-btn" aria-label="Cerrar modal">&times;</button>
+            <h3 id="modal-titulo" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">📲 Cómo instalar SLG Transportes</h3>
+            <p style="color: var(--text-muted); font-size: 14px;">Sigue estos sencillos pasos según el dispositivo que estés utilizando:</p>
+            
+            <ul class="modal-pasos">
+                <li>
+                    <span class="paso-numero">1</span>
+                    <div>
+                        <strong>En iPhone / iPad (Safari):</strong>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 2px;">Pulsa el botón <strong>Compartir</strong> (icono de cuadrado con flecha hacia arriba) y selecciona <strong>"Añadir a la pantalla de inicio"</strong>.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="paso-numero">2</span>
+                    <div>
+                        <strong>En Android (Chrome):</strong>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 2px;">Toca los 3 puntos superiores del navegador y pulsa en <strong>"Instalar aplicación"</strong> o <strong>"Añadir a pantalla principal"</strong>.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="paso-numero">3</span>
+                    <div>
+                        <strong>En ordenador (Chrome / Edge):</strong>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 2px;">Haz clic en el icono de instalación 🖥️ que aparece en la barra de direcciones arriba a la derecha.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <button type="button" class="boton boton-bloque" onclick="document.querySelector('#modal-instalar-app').classList.remove('abierto')">Entendido</button>
+        </div>
+    </div>
+
     <!-- Pie de Página -->
     <footer>
         <div class="footer-container">
@@ -320,6 +401,7 @@
                     <li><a href="About/index.html">Sobre nosotros</a></li>
                     <li><a href="Service/index.html">Servicios de transporte</a></li>
                     <li><a href="Contact/index.html">Solicitar presupuesto</a></li>
+                    <li><a href="#instalar-app" class="btn-instalar-trigger">Instalar Aplicación</a></li>
                 </ul>
             </div>
             <div class="footer-col">
